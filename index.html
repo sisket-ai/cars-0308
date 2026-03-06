@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一千零一夜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #e8f4e8; /* 改为浅绿色 */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23e8f4e8"/><path d="M0,0 L100,100" stroke="%23d0e0d0" stroke-width="1"/><path d="M100,0 L0,100" stroke="%23d0e0d0" stroke-width="1"/></svg>');
+            color: #333;
+            line-height: 1.6;
+            max-width: 1000px; /* 加宽了整个页面 */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            border: 2px solid #000;
+            border-radius: 0;
+            padding: 30px; /* 增加了内边距，让文字区域更宽 */
+            box-shadow: 8px 8px 0 #ccc;
+        }
+
+        .blog-header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 3px double #000;
+            margin-bottom: 30px;
+        }
+
+        .blog-title {
+            font-size: 2.5em;
+            color: #000;
+            text-shadow: 2px 2px 0 #ccc;
+            letter-spacing: 2px;
+            font-style: italic; /* 添加斜体 */
+        }
+
+        .blog-subtitle {
+            font-family: "SimSun", "宋体", serif;
+            font-style: italic;
+            font-size: 1.2em;
+            color: #666;
+            margin-top: 15px;
+            background-color: #ff0;
+            border: 1px dashed #f00;
+            padding: 8px 15px;
+            display: inline-block;
+        }
+
+        .nav-bar {
+            background-color: #000;
+            color: white;
+            padding: 10px;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-bar a {
+            color: #0ff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .nav-bar a:hover {
+            text-decoration: underline;
+            color: #ff0;
+        }
+
+        /* 文章样式 */
+        .article {
+            background-color: #fffff0; /* 浅黄色/米色 */
+            border: 1px solid #ccc;
+            margin-bottom: 30px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .article-number {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            vertical-align: top; /* 确保方框与标题顶部对齐 */
+        }
+
+        .article h2 {
+            color: #000;
+            border-bottom: 1px dashed #999;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: inline-block;
+            vertical-align: top; /* 确保标题与方框顶部对齐 */
+            line-height: 30px; /* 与方框高度一致 */
+            margin-top: 0;
+        }
+
+        .article-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .article-content {
+            margin: 15px 0;
+            text-align: justify;
+            padding: 0 10px; /* 增加文字区域的内边距 */
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+        }
+
+        .article-footer {
+            border-top: 1px dotted #999;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+        }
+
+        .read-more {
+            color: #00f;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .article-stats {
+            color: #666;
+        }
+
+        .blog-footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 3px double #000;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-links {
+            margin: 10px 0;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border: 1px solid #ccc;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #666;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="blog-header">
+            <h1 class="blog-title">1001夜</h1> <!-- 修改为大标题 -->
+            <p class="blog-subtitle">甩下苍白的、静默的时间</p>
+        </div>
+
+        <div class="nav-bar">
+            <a href="#">🏠 首页</a> | 
+            <a href="#">📁 归档</a> | 
+            <a href="#">📖 关于</a> | 
+            <a href="#">📧 联系</a> 
+        </div>
+
+        
+        <div class="article" id="article-1">
+            <h2><span class="article-number"> ## </span> 1000</h2>
+            <div class="article-meta">
+                <span class="date"> 📅   ****年**月**日</span>
+                <span class="author">  </span>
+            </div>
+            <div class="article-content">
+                
+        <p>高速运转的车轮被卡住，低头的瞬间我好像注意到水泥地上有一道裂缝，自行车失去重心向右歪斜，我的大腿、膝盖、脚掌和手掌离车子越来越远，整个人似乎在空中划出弧线，落进路旁的河沟里。</p>
+        <p>撞到了下巴。这是第一个反应，上下颌相撞，头部的腔体传来震感。还好身上各处还连在一起，没有摔断。我撑着地站起来，才发现一只脚已经踏入水里，忙去蹭鞋底的淤泥，膝盖也在这时感到刺痛。这一下几乎摔得神魂离体，一个声音从前头传来，应该是对我说的：同学，需要帮忙吗？循声看见一个女生扶起了自行车，站在路旁略带谨慎地看着我。我的脑子短路，只知道说句谢谢，一瘸一拐地接过自行车推着走，她问，没事吧，我说，就是有点没反应过来，嘶，好疼啊。她轻声笑了，说，去校医院处理一下伤口吧。这还有校医院？她说，就在那边，我带你去。没去过校医院吗？之前不太知道。那说明身体好。我的头依然嗡嗡作响，刚才那番结结实实墩在地上，头更疼了。</p>
+        <p>从林荫道边的台阶把车合力抬上去，穿过柏油路和茂密的绿化带，就是校医院。院落大而房子小，西式的教堂尖顶。玻璃门干净锃亮，我在门前才看清，此人下巴已经肿胀，脸型十分滑稽，穿了卡其色的五分裤，白底宽条纹上衣，膝盖、掌根也都流着血，渗出澄清的淡黄色组织液。旁边的女孩也是短袖短裤的打扮，配色很干净，纤瘦但有力量，仔细看她时我惊住了，更早的时候居然没有发现？我从玻璃的倒影里移开视线，迟疑地盯着她：李青？</p>
+        <p>在她很年轻的时候，没有戴眼镜，头发比后来常规的造型似乎长了一点，神色倒是没有太大改变。我分不清是她一直像青年时那样纯粹，还是一直像中年时那样冷静。她也凑近玻璃照了两秒，然后推门示意我进去排队。取号用的是复写纸的粉色部分，页脚掉色，纸上简略印着校徽。我看了半天，没看懂日期，或许根本没拓印清楚。李青坐在等位的长凳上，一手挡住玻璃门透进来的日光，看着我，说过来坐啊。我在她身边坐下，不知说点什么，墙上的电子挂钟正中是鲜艳的塑料壳子，画两只仙鹤一棵青松，下边是红色的机械数字：2005年5月18日，14:02，可能是接触不良，左下角的年份一直在闪动。</p>
+        <p> 我在心里算着时间。和记忆里一样，校医院排队时间很久，我们也聊到最近喜欢的唱片。跟李青聊天就是很这样，聊着聊着就会聊到音乐。她说她和发小组了乐队，正在找贝斯手。她说高中时候爱听radiohead，买了磁带听完就拿给发小，结果那位喜欢上thom yorke渐渐无法自拔，尤其是独特唱法，现在他们每次排歌都要先纠正一遍。这就像用错筷子的成年人突然学会了正确的用法，在吃饭前要先练习夹动空气。如同前次聊过的一样，她列举出的乐队我也都很喜欢，我说，早些时候我特别爱这些，不过后来渐渐也会听些更新更年轻的乐队，她说，说这话的人一般都挺老了，你看着也不像啊。我说，我有一朋友，发生在他身上的事儿，都特神奇。这个时代似乎还没流行起“我有一友”说法的真正含义，她听了那些采访事迹，很是惊奇，问我是中国的吗，怎么没听过？我说慢慢就知道了，你们会认识的。她一定不相信，只是礼貌地笑笑。突然听见校医大声呼唤候诊号码，我匆忙应答，李青看了眼表和我告别，说正好她接下来也约了人，要去某栋楼呢。</p>
+        <p>我很想叫住她留一个这时候的联系方式，或者讳莫如深地问她，你不觉得我们不像第一次见吗，这太怪了，上药的时候我想。往后的时间里还有很多机会。校医建议我用冰袋敷下巴上的伤口，然而，学校里没有此等物品，她建议我去校外的蛋糕店或者哈根达斯店购买。</p>
+        <p>想到李青刚才说的约定，我心里升腾起一阵莫名的激动。我看着地图走到了那栋教学楼，凭记忆去找排练室。但是膝盖上的伤真的很疼，几乎难以弯曲。找到时已经晚了，没见到三人相会时的景象，只捡到几张乐谱，但被挪动的鼓凳预示着这个位置将被一位传奇乐手占有。排练室以前或许是舞蹈室，三面墙上有镜子，但是长久没有清洁，连带着屋内景象也模糊起来，灰尘汗水噪音升腾。我掩上门，坐在学校外面的长椅上，车流声和人流声沉降，北京的夕阳殷红而衬得天空惨白，像被拉高了对比度。我在后来的某几年里发现世界其他地方的夕阳都不一样，这可能是某种气象学原理。坦白来说，我有点侥幸身上的伤让我没有回到他们中间，因为我不确定那样还是否能在这个时间里待下去。</p>
+        <p>后来又去过一趟排练室，正看到看到邵宸北和詹盼，高鹤，还有位几乎没有印象的哪吒乐队前成员。我自称是李维思的朋友，他们便愉快地接纳了我，邵还称赞道，想不到李维思看起来那么瘦弱，居然也能和你们学校那些死亡大金属打架。诶，他去哪了？我说，不知道，许是又打架去了？我对随口编排二姐的行为没有半分羞愧，毕竟他能接纳任何天马行空的说法，或许他此刻在网络上跟UFO目击者聊天也说不准。我们五个人凑钱给门卫大爷买了一包烟，以便于几位校外人士随意进出。我买了很多啤酒，我记得他们爱喝这个。那天晚上我们聊了很多，大概是聊到关于未来的设想吧，我突然不受控制地哭起来，几个人安慰了我一会，高鹤提出心情不好的时候可以去运动，比如射箭，我说那你和李青估计有共同爱好，她说当然了，她们之前就在击剑馆认识了。鼓手只是一味地给我递酒并惊讶于我为什么喝不醉，邵宸北宽慰地拍拍我的肩膀说不会有事的，你要相信，你看我们现在不还没做出什么名堂，但我们都相信。又欣慰道难怪我们会一起玩，我一开始就看出你是个敏感的孩子。詹盼重新打开琴盒捧出借来的那把Gibson，试着按了几个和弦，开始轻轻地弹，我认出那是后来他一首个人单曲的雏形，他低着头，脸被头发挡住，露出的皮肤在灯光下是模糊的反光的白色。我哭得更凶了。</p>
+        <p>我无法重拾吉他，我的手按不出任何一个音。于是我只好去学校免费的网球馆羽毛球馆里打球，偶尔给来参观的外国人和中学生指路。很少会碰到李青，有时是在击剑馆遇到，有时在机房外。她说他们很幸运地找到了贝斯手，现在她有了两个乐队。我颇有些遗憾，为仍未捉住的那些年少时激动的掠影，再一次却是以观众身份被人告知。最后一次见是在寒假前，她和陈曦结伴回天津。陈曦很友好地和我说了两句话，我能感觉到这是一个有趣的人，他们嘱咐我，之后会有一场演出，两个乐队都会登台，一定要来看哦。</p>
+        <p>与此同时，在和哪吒的通信中，他们告知我鼓手的离队，某天约饭我了解到他们刚刚结束了一场硝烟弥漫的排练，每个人带着十足的怒气，最后居然排出了满意的动机，邵宸北说完这话，高鹤只是冷静地布置招募鼓手的任务。我后知后觉，意识到这是一场著名的诞生，有鲜活的刚刚落幕的细节，像新鲜现打的啤酒。詹盼接着说，找到鼓手就可以把之前写好的歌大框架都确定下来，弄好了的话，高鹤回来之后不久就可以接演出了。不知道谁接着说，那还可以出专辑呢，出完专辑之后巡演……</p>
+        <p>中间的时间很快就过去了，可能有几个月，也可能过了一两年。我忍不住想起那些年轻时亲密的朋友，这些日子我好像从他们的记忆里被抹去，杳无音讯。时间对我来说总是节奏混乱，有些日子被压缩，有些日子在进度条上反复回拉。我也常常拿这个没有办法。直到我突然想起被邀请的演出，在博客上找到了阵容和地点，发帖的ID是：Sonic Youth，我看着纠正错别字的评论，有些亲切。于是我踏进了那个曾经无比熟悉，后来却不复存在的地方，台上光线很暗，只有琴面、人的脸和手臂、话筒的冷色金属是反光的亮色。的确是稚嫩的演奏，但我不忍心为任何失误之处感到失望。终于团聚的哪吒向我描述了他们心心念念的涮羊肉，说此前逛了一下午超市满载而归。刚演完，四个人就拎着购物袋跑了，完全无视台下引起骚动的Blixa等人，想来他们应该吃得很开心。</p>
+        <p>呃，此刻我的问题出现了。我该如何称呼这个时间的我自己呢？不得不承认，虽然之前的人生经历也堪称奇妙，但身临其境第三视角观看自己，仍是过于诡异的经历。鉴于对某种时空悖论的担忧，我在Cars演出时躲得远远的，台上的人戴着墨镜，一定也看不到我。我开始回溯记忆里的这家酒吧，历史发生的时候，置身其中的人们尚不知情，但二十年后痛哭怀念的人，未必就有多少是此时此地澎湃欢呼的人呢。墙上还很干净，没有涂鸦的痕迹，也只是一个有演出职能的酒吧该有的样子。我走到吧台，和调酒师打了招呼，量了50毫升金酒倒进玻璃杯里，放入切面平整长条方冰，再挤一点柠檬汁，苏打水迸发的气泡混合着凛冽的杜松子香气，闻一下心旷神怡。</p>
+        <p>刚放在吧台上，就被自然地接过去，张守望——姑且让我这样称呼——摘了墨镜，和我道谢。我惊恐地直视他（我）。时空并没有塌缩，真是太好了，看来有些物理定律也经不起实证。于是我接受了调酒师的身份，和李青打招呼，他们向我介绍二姐，演出结束都兴致勃勃，四个人便开始喝酒侃大山，居然都喝醉了。张守望点了一支烟，突然开始科普心脑血管疾病的20条成因和高血压的危害。李维思说，告诉你们一个秘密吧，其实李青是吸血鬼。李青是我们当中最清醒的，说那你是机械钢铁猩猩兽。我说既然如此我也告诉你们吧，其实我是穿越来的。他们问，从哪年穿越来的？2016？我慢悠悠地摇头，我觉得，时间本来就不准确，向后又向前，我一直觉得公元纪年很讨厌。张守望说，我靠，我也一直这么想，有时候我觉得时间根本就不存在。我说，对嘛。李青很认真地问我，在你们那个时间里发生了什么？我说，说出来怕吓到你们。他们不满，你就说嘛。我看着二李，首先，你俩结婚了。李青平静地哦了一声，李维思看看她，又看看我，突然就醉倒了。我对张守望说：你跳水的时候总是摔断腿。李青问：就这？我看着她，她也认真地看着我。于是我说：当然不止这些。Cars后来很出色啊，出了四五张专辑，你们三个一直玩了二十多年啊，很多人喜欢你们，嗯，我们。然后呢？李青问。她的眼睛无比沉静，于是我看着她，很平静、很严肃地说：然后一切都不复存在了。世界崩坏了。</p>
+        
+            </div>
+            <div class="article-footer">
+                <a href="#article-2" class="read-more" id="read-more-1">阅读更多 →</a>
+                <span class="article-stats"> </span>
+            </div>
+        </div>
+        
+        <div class="article" id="article-2">
+            <h2><span class="article-number"> ## </span> 0010</h2>
+            <div class="article-meta">
+                <span class="date"> 📅   ****年**月**日</span>
+                <span class="author">  </span>
+            </div>
+            <div class="article-content">
+                
+        <p>终于，李青为自己和朋友的乐队约到了贝斯手，是学校论坛里一个蛮有名的账号。他们在聊天室里每天准时上线，意外地发现对方和自己爱听同样的外国人，先是对屏幕另一端的两位有了品味上的赞赏。又恰巧都有玩乐队的想法，且付诸行动：写好歌填好词，只等一位乐手加入。带着一种最严厉的HR招募人才的心态，李青去找陈曦商议晚上见面的事情，而这一位清华大四学生正忙着应付导师组会与考研复习，在抽出见面的20分钟里决定将此事全权交由李青负责。从清华园回北理工，李青走在天桥上难得没有戴耳机听随身听，她确信自己听见路面上传来一个人的喃喃自语，向下看去，她有些不敢相信：一个人骑着车飞出去了。像失去重力一样，四肢分别离开自行车，往右后方划出一道弧线，重重地拍在了路边的水沟旁。</p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p>魔法师带他来到一个神秘的山洞，让他去取一盏古老的油灯。</p>
+        <p>阿拉丁进入山洞，发现油灯旁堆满了金银珠宝。</p>
+        <p>他取出油灯后，却被魔法师困在了山洞里。</p>
+        <p>在绝望中，阿拉丁无意间摩擦了油灯，一个巨大的精灵出现了。</p>
+        <p>精灵告诉他，可以满足他的三个愿望。</p>
+        
+            </div>
+            <div class="article-footer">
+                <a href="#article-3" class="read-more" id="read-more-2">阅读更多 →</a>
+                <span class="article-stats"> </span>
+            </div>
+        </div>
+        
+        <div class="article" id="article-3">
+            <h2><span class="article-number"> ## </span> 0001</h2>
+            <div class="article-meta">
+                <span class="date"> 📅   ****年**月**日</span>
+                <span class="author">  </span>
+            </div>
+            <div class="article-content">
+                
+        <p>辛巴达是巴格达城的一个富商，他决定出海经商。</p>
+        <p>第一次航行，他们的船遇到暴风雨，漂流到一个奇怪的岛屿。</p>
+        <p>这个岛屿其实是一只巨大的海龟，当海龟潜入水中时，辛巴达抓住了一块木板才得以逃生。</p>
+        <p>第二次航行，辛巴达来到了一个满是钻石的山谷。</p>
+        <p>他收集了许多钻石，却被困在了山谷中。</p>
+        <p>最后，他利用被老鹰带回巢中的机会，成功逃脱并带回了财富。</p>
+        <p>辛巴达一共进行了七次航海，每次都有不同的奇遇。</p>
+        
+            </div>
+            <div class="article-footer">
+                <a href="#article-3" class="read-more" id="read-more-3">阅读更多 →</a>
+                <span class="article-stats"> </span>
+            </div>
+        </div>
+        
+
+        <div class="blog-footer">
+            <div class="footer-content">
+                <p>© 版权所有</p>
+                <p>最佳浏览效果: IE 4.0+ | 分辨率 800×600 | 真彩色 16位</p>
+                <div class="footer-links">
+                    <a href="#"><img src="https://web.archive.org/web/19991005000000if_/http://geocities.com/hi/hello.gif" alt="按钮" width="88" height="31" style="border:0;"></a>
+                    <a href="#"><img src="https://web.archive.org/web/19991005000000if_/http://geocities.com/hi/welcome.gif" alt="欢迎" width="88" height="31" style="border:0;"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 实现文章逐篇显示功能
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // 获取所有文章
+            const articles = document.querySelectorAll('.article');
+            const totalArticles = articles.length;
+
+            // 隐藏除第一篇文章外的所有文章
+            for (let i = 1; i < articles.length; i++) {
+                articles[i].style.display = 'none';
+            }
+
+            // 为每个"阅读更多"按钮添加点击事件
+            document.querySelectorAll('.read-more').forEach((button, index) => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const currentArticleId = this.id.replace('read-more-', '');
+                    const currentArticleIndex = parseInt(currentArticleId);
+
+                    // 隐藏当前文章的"阅读更多"按钮
+                    this.style.display = 'none';
+
+                    // 显示下一篇文章
+                    if (currentArticleIndex < totalArticles) {
+                        const nextArticle = document.getElementById('article-' + (currentArticleIndex + 1));
+                        if (nextArticle) {
+                            nextArticle.style.display = 'block';
+
+                            // 平滑滚动到下一篇文章
+                            nextArticle.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // 添加文章点击效果
+            articles.forEach(article => {
+                article.addEventListener('click', function() {
+                    this.style.backgroundColor = this.style.backgroundColor === 'rgb(255, 248, 220)' ? '#fffff0' : '#fff8dc';
+                });
+            });
+
+            // 闪烁光标效果
+            const blinkElement = document.querySelector('.blink');
+            if (blinkElement) {
+                setInterval(() => {
+                    blinkElement.style.visibility = blinkElement.style.visibility === 'hidden' ? 'visible' : 'hidden';
+                }, 500);
+            }
+        });
+    </script>
+</body>
+</html>
